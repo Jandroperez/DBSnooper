@@ -14,5 +14,7 @@ create a report that summarizes some of information that is returned from Shodan
 * Shodan API Key
 
 
-## __Binder Notebook__
-This Notebook can be tested and used via Binder. Please click on this link to test it.
+## __View the Notebook__
+This Notebook can be viewed via NBViewer. Please click on this link to test it.
+
+[To Interact with the Notebook, click here](https://nbviewer.jupyter.org/github/Jandroperez/DBSnooper/blob/main/DBSnooper.ipynb#By:-Alex-Perez)

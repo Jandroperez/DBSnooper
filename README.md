@@ -14,7 +14,7 @@ create a report that summarizes some of information that is returned from Shodan
 * Shodan API Key
 
 
-## __ View the Notebook__
+## __View the Notebook__
 This Notebook can be Viewed via NBViewer:
 
 https://nbviewer.jupyter.org/github/Jandroperez/DBSnooper/blob/main/DBSnooper.ipynb#By:-Alex-Perez

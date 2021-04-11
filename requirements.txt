@@ -1,0 +1,7 @@
+pandas
+numpy
+folium
+altair
+requests
+notebook
+jupyterlab

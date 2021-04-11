@@ -15,6 +15,6 @@ create a report that summarizes some of information that is returned from Shodan
 
 
 ## __View the Notebook__
-This Notebook can be viewed via NBViewer. Please click on this link to test it.
+This Notebook can be Viewed via NBViewer:
 
-[To Interact with the Notebook, click here](https://nbviewer.jupyter.org/github/Jandroperez/DBSnooper/blob/main/DBSnooper.ipynb#By:-Alex-Perez)
+https://nbviewer.jupyter.org/github/Jandroperez/DBSnooper/blob/main/DBSnooper.ipynb#By:-Alex-Perez

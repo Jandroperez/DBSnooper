@@ -15,9 +15,7 @@ Alex Perez
 import requests
 import yaml
 import os
-from colorama import Fore
 import pandas as pd
-import numpy as np
 from pandas import json_normalize
 
 
@@ -58,14 +56,11 @@ class Shodan:
         """
         
         try:
-            # The Shodan Search URL
-            ShodanSearchURL = f'https://api.shodan.io/shodan/host/search?key={shodanApiKey}&query={searchTerm}&facets={facets}'
-            # Sending out the Request
-            ShodanRequest = requests.get(ShodanSearchURL)
-            # Shodan Data Conversion into Json
-            ShodanSearchJson = ShodanRequest.json()
-            # Returns the Json of the response
-            return cls.ShodanParser(ShodanSearchJson)
+            ShodanRequest = requests.get(
+                'https://api.shodan.io/shodan/host/search',
+                params={'key': shodanApiKey, 'query': searchTerm, 'facets': facets}
+            )
+            return cls.ShodanParser(ShodanRequest.json())
             
         except requests.RequestException as error:
             print(error)
@@ -81,9 +76,7 @@ class Shodan:
         Parameters:
         --------------------
         @QueryData:
-            The Json Data that is received from the query
-        @Dataframe:
-            Default Value is set to False. If True, then the data will be provided in a Dataframe
+            The JSON data received from the Shodan API
 
         Returns:
         --------------------
@@ -91,5 +84,5 @@ class Shodan:
         """
         # Will Convert the JSON into a Dataframe
         ShodanDataframe = json_normalize(QueryData['matches'])
-        ShodanDataframe = ShodanDataframe[['ip_str', 'port', 'org', 'asn','isp' , 'product','location.country_name', 'location.latitude', 'location.longitude', ]]
+        ShodanDataframe = ShodanDataframe[['ip_str', 'port', 'org', 'asn', 'isp', 'product', 'location.country_name', 'location.latitude', 'location.longitude']]
         return ShodanDataframe

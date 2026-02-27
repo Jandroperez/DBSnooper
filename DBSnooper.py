@@ -12,22 +12,12 @@ Alex Perez
 # * Import Section
 # *============================
 
-import argparse
 from src.ShodanUtils import Shodan
-import src.Constants as CS
-
-# *=============================
-# * Argument Parser
-# *=============================
-
 
 # *=================================
 # * Handling the User Interactions
 # *=================================
 
-
-QueryRequest = Shodan.Shodan_Search(searchTerm="Elastic")
-print(QueryRequest)
-
-
-    
+if __name__ == '__main__':
+    QueryRequest = Shodan.Shodan_Search(searchTerm="Elastic")
+    print(QueryRequest)

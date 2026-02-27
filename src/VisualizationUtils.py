@@ -7,7 +7,6 @@ Author: Alex Perez
 """
 
 # ================== IMPORT SECTION =======================
-from re import A
 import pandas as pd
 import altair as alt
 import folium
@@ -42,8 +41,7 @@ class ShodanMap:
         """
 
         try:
-            Dataframe = Dataframe[Dataframe[latitude_column].notnull()]
-            Dataframe = Dataframe[Dataframe[longitude_column].notnull()]
+            Dataframe = Dataframe.dropna(subset=[latitude_column, longitude_column])
 
             # Instantiating the map from Folium
             Geo_Map = folium.Map(
@@ -98,14 +96,9 @@ class Graph:
         Will return a Bar Graph
         """
         try:
-            Data = Dataframe[y_axis].value_counts()[:10].reset_index()
-            Data.rename(columns={
-                'index': y_axis,
-                f'{y_axis}': 'Count'
-            }, inplace=True)
+            counts = Dataframe[y_axis].value_counts().head(10)
+            Data = pd.DataFrame({y_axis: counts.index, 'Count': counts.values})
 
-            Data = Data.sort_values(by='Count', ascending=False)
-            
             Altair_BarGraph = alt.Chart(Data).mark_bar().encode(
                 alt.X('Count'),
                 alt.Y(y_axis)
